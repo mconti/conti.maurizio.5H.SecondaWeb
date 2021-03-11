@@ -60,8 +60,8 @@ namespace conti.maurizio._5H.SecondaWeb
             app.UseStaticFiles();
 
             app.UseRouting();
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

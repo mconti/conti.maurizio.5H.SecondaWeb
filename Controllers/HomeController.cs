@@ -21,18 +21,25 @@ namespace conti.maurizio._5H.SecondaWeb.Controllers
 
         public IActionResult Index()
         {
-            if( User.Identity.IsAuthenticated )
-                return View();
+            return View();
+        }
 
-            return RedirectToAction("Login", "Account");
+        public IActionResult Storia()
+        {
+            return View();
+        }
+        public IActionResult Eventi()
+        {
+            return View();
+        }
+        public IActionResult Blog()
+        {
+            return View();
         }
 
         public IActionResult Privacy()
         {
-            if( User.Identity.IsAuthenticated )
-                return View();
-
-            return RedirectToAction("Login", "Account");
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
