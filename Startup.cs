@@ -33,13 +33,9 @@ namespace conti.maurizio._5H.SecondaWeb
             string cn = "Data Source=database.db";
 
             // Registrazione globale (DI) del dbcontext per creare 
-            // automaticamente il db quando serve. Dai un'occhiata al 
-            // costruttore di DBContext, ti accorgerai che vuole un "option" ...
-            // Gli arriva da qui, e contiene la stringa di connessione.
+            // automaticamente il db quando serve. 
             services.AddDbContext<DBContext>( options => options.UseSqlite(cn) );
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                            .AddEntityFrameworkStores<DBContext>();
-
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<DBContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,8 +56,9 @@ namespace conti.maurizio._5H.SecondaWeb
             app.UseStaticFiles();
 
             app.UseRouting();
-            app.UseAuthentication();
-            app.UseAuthorization();
+            
+            app.UseAuthentication();  // Prima autentichiamo
+            app.UseAuthorization();   // ... poi autorizziamo
 
             app.UseEndpoints(endpoints =>
             {

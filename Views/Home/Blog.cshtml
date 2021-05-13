@@ -13,3 +13,17 @@
         </div>
     </div>
 </div>
+
+    <table class="table table-bordered table-striped table-sm">
+        <thead><tr><th>Titolo</th><th>Abstract</th><th>Immagine</th><th>Testo</th></tr></thead>
+        <tbody>
+            @foreach(Articolo a in Model.Articoli)
+            {
+            <tr><td>@a.Titolo</td><td>@a.Abstract</td><td>@a.Immagine</td><td>@a.Testo</td>
+            <td></td>
+            <td>@Html.ActionLink("cancella","Cancella", "Home", new{id=a.Id}, null)</td>
+            <td>@Html.ActionLink("Modifica","Modifica", "Home", new {Id=a.Id})</td>
+            </tr>
+            }
+        </tbody>
+    </table>

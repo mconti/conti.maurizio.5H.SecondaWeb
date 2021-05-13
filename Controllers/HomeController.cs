@@ -32,11 +32,14 @@ namespace conti.maurizio._5H.SecondaWeb.Controllers
         {
             return View();
         }
+        [Authorize]
         public IActionResult Blog()
         {
-            return View();
+            var db = new DBContext();
+            return View(db);
         }
 
+        [Authorize]
         public IActionResult Privacy()
         {
             return View();
